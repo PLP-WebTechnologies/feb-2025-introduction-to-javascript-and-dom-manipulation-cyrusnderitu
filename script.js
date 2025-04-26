@@ -2,13 +2,15 @@ let inputField = document.querySelector('#inputText');
 let btnSubmit = document.querySelector('.todo_add')
 let formSubmit = document.querySelector('.todo-head')
 let parentElement = document.querySelector('.todo-lists')
+const noTasksMsg = document.getElementById('noTasksMsg');
 
 
-function markcomplete(){
-
+if(parentElement.children.length !== 0){
+    noTasksMsg.style.display = "none"
 }
 formSubmit.addEventListener('submit', function(e){
     e.preventDefault()
+    
     let newTask = document.createElement('li')
     const textSubmit = inputField.value
     if(textSubmit == ""){
@@ -21,7 +23,6 @@ formSubmit.addEventListener('submit', function(e){
         // Adding the click functionality to the child "li" for completion
         newTask.addEventListener('click', ()=>{
             newTask.classList.toggle('complete');
-            console.log(`You've clicked the ${newTask.textContent}`)
         })
         parentElement.appendChild(newTask);
         inputField.value = ""
@@ -33,8 +34,10 @@ formSubmit.addEventListener('submit', function(e){
     newTask.appendChild(deleteSpan);
     deleteSpan.addEventListener("click", (e)=>{
         e.stopPropagation();
-        console.log("You've clicked the delete button")
         newTask.remove()
+        if(parentElement.children.length == 0){
+            noTasksMsg.style.display="block"
+        }
     })
 })
 

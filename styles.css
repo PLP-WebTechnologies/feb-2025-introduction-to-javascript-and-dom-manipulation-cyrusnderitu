@@ -84,7 +84,7 @@ ul li span::after{
     z-index: 1;
 }
 ul span:hover{
-    color: aqua;
+    color: rgb(172, 42, 42);
 }
 ul li::before{
     content: "\f111";
@@ -107,8 +107,14 @@ ul li.complete::before{
     margin-right: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
+    color: rgb(42, 189, 42);
+    text-decoration: none;
 }
 ul li.complete{
-    text-decoration: line-through;
     color: gray;
 }
+#noTasksMsg {
+    text-align: center;
+    color: gray;
+    margin-top: 20px;
+  }
