@@ -48,6 +48,7 @@ input{
     background-color: transparent;
     font-family: inherit;
     cursor: pointer;
+    outline: none;
 }
 input::placeholder{
     text-indent: 8px;
@@ -71,7 +72,7 @@ button{
     padding: 10px;
     border-radius: 20px;
 }
-ul li::after{
+ul li span::after{
     content: "\f00d";
     font: var(--fa-font-solid);
     -webkit-font-smoothing: antialiased;
@@ -80,6 +81,10 @@ ul li::after{
     right: 4rem;
     vertical-align: middle;
     cursor: pointer;
+    z-index: 1;
+}
+ul span:hover{
+    color: aqua;
 }
 ul li::before{
     content: "\f111";
@@ -105,4 +110,5 @@ ul li.complete::before{
 }
 ul li.complete{
     text-decoration: line-through;
+    color: gray;
 }
