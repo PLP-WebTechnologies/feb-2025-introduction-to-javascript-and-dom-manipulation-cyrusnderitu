@@ -8,6 +8,9 @@ const noTasksMsg = document.getElementById('noTasksMsg');
 if(parentElement.children.length !== 0){
     noTasksMsg.style.display = "none"
 }
+else{
+    noTasksMsg.style.display="block"
+}
 formSubmit.addEventListener('submit', function(e){
     e.preventDefault()
     
@@ -35,9 +38,6 @@ formSubmit.addEventListener('submit', function(e){
     deleteSpan.addEventListener("click", (e)=>{
         e.stopPropagation();
         newTask.remove()
-        if(parentElement.children.length == 0){
-            noTasksMsg.style.display="block"
-        }
     })
 })
 
