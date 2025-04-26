@@ -13,16 +13,15 @@ formSubmit.addEventListener('submit', function(e){
     else{
         let newTask = document.createElement('li')
         newTask.innerHTML = textSubmit;
+
+        newTask.addEventListener('click', ()=>{
+            this.classList.toggle('complete')
+        })
         parentElement.appendChild(newTask);
         inputField.value = ""
     }
 })
 
-parentElement.addEventListener('click', (e)=>{
-    if(e.target.tagName === 'li'){
-        e.target.classList.toggle('complete')
-    }
-})
 
 
 
