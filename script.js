@@ -19,16 +19,17 @@ formSubmit.addEventListener('submit', function(e){
     if(textSubmit == ""){
         alert("Your input field is empty")
     }
-    else{
-        
+    else{     
         newTask.textContent = textSubmit;
 
         // Adding the click functionality to the child "li" for completion
         newTask.addEventListener('click', ()=>{
             newTask.classList.toggle('complete');
+            saveData()
         })
         parentElement.appendChild(newTask);
         inputField.value = ""
+        saveData()
     }
 
     // Adding Delete Functionality to each Li
@@ -38,8 +39,20 @@ formSubmit.addEventListener('submit', function(e){
     deleteSpan.addEventListener("click", (e)=>{
         e.stopPropagation();
         newTask.remove()
+        saveData()
     })
 })
+
+// Save Data to Local Storage
+function saveData(){
+    localStorage.setItem("todos", parentElement.innerHTML)
+}
+
+// Show Saved data on Page Load
+function showTodos(){
+    parentElement.innerHTML = localStorage.getItem("todos")
+}
+showTodos()
 
 
 
